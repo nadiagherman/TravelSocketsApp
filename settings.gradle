@@ -1,0 +1,5 @@
+rootProject.name = 'mpp'
+include 'TravelClient'
+include 'TravelCommon'
+include 'TravelServer'
+

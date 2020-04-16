@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+<util:properties id="jdbcProps" location="classpath:bd.properties"/>
+
+    <bean id="flightRepository" class="repository.FlightJdbcRepository">
+        <constructor-arg ref="jdbcProps"/>
+
+    </bean>
+    <bean id="accountRepository" class="repository.AccountJdbcRepository">
+        <constructor-arg ref="jdbcProps"/>
+    </bean>
+
+
+    <bean id="ticketRepository" class="repository.TicketJdbcRepository">
+        <constructor-arg ref="jdbcProps"/>
+    </bean>
+
+    <bean id="travelServices" class="services.TravelServicesImpl">
+        <constructor-arg ref="accountRepository"/>
+        <constructor-arg ref="flightRepository"/>
+        <constructor-arg ref="ticketRepository"/>
+    </bean>
+
+
+    <context:property-placeholder location="classpath:travelserver.properties" />
+    <bean id="concurrentServer" class="net.RpcConcurrentServer">
+    <constructor-arg index="0" value="${travel.server.port}"/>
+    <constructor-arg index="1" ref="travelServices"/>
+    </bean>
+
+
+</beans>

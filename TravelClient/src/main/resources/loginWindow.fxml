@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="loginPane" prefHeight="400.0" prefWidth="383.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="controller.LoginController">
+    <children>
+        <VBox layoutX="51.0" layoutY="56.0" prefHeight="287.0" prefWidth="282.0">
+            <children>
+                <GridPane prefHeight="185.0" prefWidth="282.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="136.33331298828125" minWidth="10.0" prefWidth="88.66670735677083" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="210.33330535888672" minWidth="10.0" prefWidth="193.99995930989587" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="172.0" minHeight="10.0" prefHeight="91.33333333333333" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="192.00001017252606" minHeight="10.0" prefHeight="94.66666666666667" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Username:" />
+                        <Label text="Password:" GridPane.rowIndex="1" />
+                        <TextField fx:id="usernameTextField" GridPane.columnIndex="1" />
+                        <PasswordField fx:id="passwordTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    </children>
+                </GridPane>
+                <Button  mnemonicParsing="false" onAction="#handleLogin" prefHeight="64.0" prefWidth="282.0" text="LOG IN" textFill="WHITE" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
+

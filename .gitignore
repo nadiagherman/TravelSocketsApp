@@ -1,0 +1,9 @@
+# Project exclude paths
+/.gradle/
+/build/
+/TravelClient/build/
+/TravelClient/build/classes/java/main/
+/TravelCommon/build/
+/TravelCommon/build/classes/java/main/
+/TravelServer/build/
+/TravelServer/build/classes/java/main/
